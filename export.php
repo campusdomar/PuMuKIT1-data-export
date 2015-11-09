@@ -1,6 +1,9 @@
 <?php /**
  * export batch script
  *
+ * Use mode:
+ *
+ * php export.php SERIAL_ID >> serialized_data_SERIAL_ID.xml
  *
  * @package    pumukituvigo
  * @subpackage batch
@@ -17,17 +20,16 @@ require_once(SF_ROOT_DIR.DIRECTORY_SEPARATOR.'apps'.DIRECTORY_SEPARATOR.SF_APP.D
 // initialize database manager
 $databaseManager = new sfDatabaseManager();
 $databaseManager->initialize();
-/** modo de uso
- *
- * php export.php SERIAL_ID >> serialized_data_SERIAL_ID.xml
- *
- */
 
+// Check input
 if (2 != count($argv)) {
     throw new \Exception("\033[31mERROR: Use mode: php export.php SERIAL_ID >> /tmp/export/serial_SERIAL_ID\033[0m");
     exit(-1);
 }
-if (($id =intval($argv[1])) == 0)  exit(-1);
+if (($id =intval($argv[1])) <= 0) {
+    throw new \Exception("\033[31mERROR: Zero or negative ids are not allowed. Please, give a positive id.\033[0m");
+    exit(-1);
+}
 
 $s = SerialPeer::retrieveByPK($id);
 
@@ -48,6 +50,7 @@ function print_boolean($boolean){
 ?>
 <?php echo '<?xml version="1.0" encoding="UTF-8"?>' ?>
 <?php $langs = sfConfig::get('app_lang_array', array('es')); ?>
+
 <serial>
   <version>0.96</version>
   <id><?php echo $s->getId() ?></id>
@@ -229,8 +232,8 @@ if($mh = SerialMatterhornPeer::doSelectOne($c)):
       </broadcast>
       <mmTemplatePersons>
 <?php foreach(RolePeer::doSelect(new Criteria()) as $role):?>
-  <?php $mtpersons = $mt->getPersons($role->getId()) ?>
-  <?php if (count($mtpersons) == 0) continue; ?>
+<?php $mtpersons = $mt->getPersons($role->getId()) ?>
+<?php if(count($mtpersons) == 0) continue; ?>
         <role rank="<?php echo $role->getRank() ?>" id="<?php echo $role->getId() ?>">
           <cod><?php echo $role->getCod() ?></cod>
           <xml><?php echo $role->getXml() ?></xml>
@@ -410,8 +413,8 @@ if($mh = SerialMatterhornPeer::doSelectOne($c)):
       </mmGrounds>
       <mmPersons>
 <?php foreach(RolePeer::doSelect(new Criteria()) as $role):?>
-  <?php $mmpersons = $mm->getPersons($role->getId()) ?>
-  <?php if (count($mmpersons) == 0) continue; ?>
+<?php $mmpersons = $mm->getPersons($role->getId()) ?>
+<?php if (count($mmpersons) == 0) continue; ?>
         <role rank="<?php echo $role->getRank() ?>" id="<?php echo $role->getId() ?>">
           <cod><?php echo $role->getCod() ?></cod>
           <xml><?php echo $role->getXml() ?></xml>
