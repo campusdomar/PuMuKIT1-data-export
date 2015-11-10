@@ -72,8 +72,9 @@ Follow the next steps. First XXXX should be the id without the zeros on the left
 second XXXX should be the id in full 4 digits format:
 
 ```
-$ cd /var/www/pumukitcmar/batch/export/
-$ php export_cmar.php XXXX > /tmp/export/serialXXXX.xml
+$ cd /path/to/pumukit1.7/
+$ cd batch/export/
+$ php export.php XXXX > /tmp/export/serialXXXX.xml
 ```
 
 Execute again the `grep` command to check the series now has been imported successfully.
@@ -126,7 +127,7 @@ $ rm -rf export/
 $ tar zxvf export.tgz
 ```
 
-This will create a folder named 'export' into the current directory. This full path directory will be used into `import:cmar:series` command as the ROUTE parameter in the Migration Execution Guide:
+This will create a folder named 'export' into the current directory. This full path directory will be used into `import:pumukit:series` command as the ROUTE parameter in the Migration Execution Guide:
 
 ```
 /path/to/safe/folder/export
