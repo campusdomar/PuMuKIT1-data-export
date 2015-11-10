@@ -174,38 +174,6 @@ if($mh = SerialMatterhornPeer::doSelectOne($c)):
         <<?php echo $lang ?>><?php echo print_string($mt->getLine2()) ?></<?php echo $lang ?>>
 <?php endforeach;?>
       </line2>
-      <place id="<?php if ( $mt->getPrecinct() !== NULL ) echo $mt->getPrecinct()->getPlace()->getId() ?>">
-        <coorgeo><?php if ( $mt->getPrecinct() !== NULL ) echo $mt->getPrecinct()->getPlace()->getCoorgeo() ?></coorgeo>
-        <cod><?php if ( $mt->getPrecinct() !== NULL ) echo $mt->getPrecinct()->getPlace()->getCod() ?></cod>
-        <name>
-<?php foreach($langs as $lang): $mt->setCulture($lang); ?>
-          <<?php echo $lang ?>><?php if ( $mt->getPrecinct() !== NULL ) echo print_string($mt->getPrecinct()->getPlace()->getName()) ?></<?php echo $lang ?>>
-<?php endforeach;?>
-        </name>
-        <address>
-<?php foreach($langs as $lang): $mt->setCulture($lang); ?>
-          <<?php echo $lang ?>><?php if ( $mt->getPrecinct() !== NULL ) echo print_string($mt->getPrecinct()->getPlace()->getAddress()) ?></<?php echo $lang ?>>
-<?php endforeach;?>
-        </address>
-        <precinct id="<?php if ( $mt->getPrecinct() !== NULL ) echo $mt->getPrecinct()->getId() ?>">
-          <defaultsel><?php if ( $mt->getPrecinct() !== NULL ) echo print_boolean($mt->getPrecinct()->getDefaultSel()) ?></defaultsel>
-          <name>
-<?php foreach($langs as $lang): $mt->setCulture($lang); ?>
-            <<?php echo $lang ?>><?php if ( $mt->getPrecinct() !== NULL ) echo print_string($mt->getPrecinct()->getName()) ?></<?php echo $lang ?>>
-<?php endforeach;?>
-          </name>
-          <equipment>
-<?php foreach($langs as $lang): $mt->setCulture($lang); ?>
-            <<?php echo $lang ?>><?php if ( $mt->getPrecinct() !== NULL ) echo print_string($mt->getPrecinct()->getEquipment()) ?></<?php echo $lang ?>>
-<?php endforeach;?>
-          </equipment>
-          <comment>
-<?php foreach($langs as $lang): $mt->setCulture($lang); ?>
-            <<?php echo $lang ?>><?php if ( $mt->getPrecinct() !== NULL ) echo print_string($mt->getPrecinct()->getComment()) ?></<?php echo $lang ?>>
-<?php endforeach;?>
-          </comment>
-        </precinct>
-      </place>
       <genre id="<?php echo $mt->getGenre()->getId() ?>">
         <cod><?php echo $mt->getGenre()->getCod() ?></cod>
         <defaultsel><?php echo print_boolean($mt->getGenre()->getDefaultSel()) ?></defaultsel>
