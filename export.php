@@ -286,16 +286,16 @@ if($mh = SerialMatterhornPeer::doSelectOne($c)):
       </publicationChannels>
       <publishingDecisions>
 <?php if($mm->getAnnounce()):?>
-        <publishingDecision name="Anunciado" />
+        <publishingDecision name="Announce" />
 <?php endif ?>
 <?php if($mm->getEditorial1()):?>
-        <publishingDecision name="Grandes Conferencias" />
+        <publishingDecision name="Editorial1" />
 <?php endif ?>
 <?php if($mm->getEditorial2()):?>
-        <publishingDecision name="Promocionales y corporativos" />
+        <publishingDecision name="Editorial2" />
 <?php endif ?>
 <?php if($mm->getEditorial3()):?>
-        <publishingDecision name="Área de Prensa" />
+        <publishingDecision name="Editorial3" />
 <?php endif ?>
       </publishingDecisions>
       <announce><?php echo print_boolean($mm->getAnnounce()) ?></announce>
