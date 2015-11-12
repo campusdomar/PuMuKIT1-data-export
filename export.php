@@ -54,6 +54,7 @@ function print_boolean($boolean){
 <serial>
   <version>0.96</version>
   <id><?php echo $s->getId() ?></id>
+  <hash><?php echo SerialHashPeer::get($s)->getHash() ?></hash>
   <title>
 <?php foreach($langs as $lang): $s->setCulture($lang); ?>
     <<?php echo $lang ?>><?php echo print_string($s->getTitle()) ?></<?php echo $lang ?>>
