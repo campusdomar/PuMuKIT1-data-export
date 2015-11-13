@@ -1,5 +1,7 @@
 # Export Pumukit1 Database Guide
 
+*This page is updated to the PuMuKIT 1.7.x*
+
 ## Steps to export Pumukit1 database and to import it into Pumukit2
 
 1.- Connect to your Pumukit1.7 system:
