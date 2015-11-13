@@ -20,7 +20,7 @@ $ cd batch
 3.- Git clone this repo:
 
 ```
-$ git clone URL_OF_THIS_REPO export
+$ git clone https://github.com/campusdomar/PuMuKIT1-data-export.git export
 ```
 
 4.- Create the directory where the exported XML files are going to be placed. E.g.:
@@ -165,6 +165,6 @@ $ exit
 $ ssh user@pumukit2-system
 ```
 
-20.- Follow the steps of the Migration Execution Guide:
+20.- Follow the steps of the PuMuKIT2-import-bundle:
 
-URL link will be available soon.
+[PuMuKIT2-import-bundle README](https://github.com/campusdomar/PuMuKIT2-import-bundle/blob/master/README.md)
