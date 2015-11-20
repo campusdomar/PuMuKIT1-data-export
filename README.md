@@ -1,6 +1,6 @@
 # Export Pumukit1 Database Guide
 
-*This page is updated to the PuMuKIT 1.7.x*
+*This page is updated to the PuMuKIT1-data-export 1.0.0 PuMuKIT 1.7.x*
 
 ## Steps to export Pumukit1 database and to import it into Pumukit2
 
@@ -23,6 +23,8 @@ $ cd batch
 
 ```
 $ git clone https://github.com/campusdomar/PuMuKIT1-data-export.git export
+$ cd export
+$ git checkout 1.0.0
 ```
 
 4.- Create the directory where the exported XML files are going to be placed. E.g.:
