@@ -482,7 +482,7 @@ if($mh = SerialMatterhornPeer::doSelectOne($c)):
           <resolutionver><?php echo $file->getResolutionVer() ?></resolutionver>
           <display><?php echo print_boolean($file->getDisplay()) ?></display>
           <language>
-            <cod><?php echo $file->getLanguage()->getCod() ?></cod>
+            <cod><?php echo (($file->getLanguage()->getCod() == "CH") ? "ZH" : $file->getLanguage()->getCod())?></cod>
             <defaultsel><?php echo print_boolean($file->getLanguage()->getDefaultsel()) ?></defaultsel>
             <name>
 <?php foreach($langs as $lang): $file->setCulture($lang); ?>
