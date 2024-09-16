@@ -325,6 +325,7 @@ if($mh = SerialMatterhornPeer::doSelectOne($c)):
         <<?php echo $lang ?>><?php echo print_string($mm->getDescription()) ?></<?php echo $lang ?>>
 <?php endforeach;?>
       </description>
+<?php if($mm->getBroadcast()):?>
       <broadcast id="<?php echo $mm->getBroadcast()->getId() ?>">
         <name><?php echo $mm->getBroadcast()->getName() ?></name>
         <passwd><?php echo $mm->getBroadcast()->getPasswd() ?></passwd>
@@ -340,6 +341,7 @@ if($mh = SerialMatterhornPeer::doSelectOne($c)):
 <?php endforeach;?>
         </description>
       </broadcast>
+<?php endif ?>
       <genre id="<?php echo $mm->getGenre()->getId() ?>">
         <cod><?php echo $mm->getGenre()->getCod() ?></cod>
         <defaultsel><?php echo print_boolean($mm->getGenre()->getDefaultSel()) ?></defaultsel>
