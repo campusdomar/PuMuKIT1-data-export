@@ -31,12 +31,12 @@ $databaseManager->initialize();
 
 // Check input
 if (2 != count($argv)) {
-    throw new \Exception("ERROR: Use mode: php export_all.php EXPORT_PATH > export_script_series_bat.sh");
+    throw new Exception("ERROR: Use mode: php export_all.php EXPORT_PATH > export_script_series_bat.sh");
     exit(-1);
 }
 
 if (!is_dir($dir=$argv[1])) {
-    throw new \Exception("ERROR: Unable to find '".$dir."' directory. Please, give an existing folder.");
+    throw new Exception("ERROR: Unable to find '".$dir."' directory. Please, give an existing folder.");
     exit(-1);
 }
 

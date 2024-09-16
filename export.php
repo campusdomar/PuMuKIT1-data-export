@@ -21,20 +21,22 @@ require_once(SF_ROOT_DIR.DIRECTORY_SEPARATOR.'apps'.DIRECTORY_SEPARATOR.SF_APP.D
 $databaseManager = new sfDatabaseManager();
 $databaseManager->initialize();
 
+sfConfig::set('app_lang_array', array('es'));
+
 // Check input
 if (2 != count($argv)) {
-    throw new \Exception("\033[31mERROR: Use mode: php export.php SERIAL_ID >> /tmp/export/serial_SERIAL_ID\033[0m");
+    throw new Exception("\033[31mERROR: Use mode: php export.php SERIAL_ID >> /tmp/export/serial_SERIAL_ID\033[0m");
     exit(-1);
 }
 if (($id =intval($argv[1])) <= 0) {
-    throw new \Exception("\033[31mERROR: Zero or negative ids are not allowed. Please, give a positive id.\033[0m");
+    throw new Exception("\033[31mERROR: Zero or negative ids are not allowed. Please, give a positive id.\033[0m");
     exit(-1);
 }
 
 $s = SerialPeer::retrieveByPK($id);
 
 if (is_null($s)){
-    throw new \Exception("\033[31mERROR: There is no serial with the given id '".$id."'\033[0m");
+    throw new Exception("\033[31mERROR: There is no serial with the given id '".$id."'\033[0m");
     exit(-1);
 }
 
